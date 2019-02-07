@@ -18,4 +18,8 @@ export class ChapterListComponent implements OnInit {
     });
   }
 
+  onSelect(chapter) {
+    console.log(chapter);
+  }
+
 }
