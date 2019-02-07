@@ -1,6 +1,7 @@
 import { Chapter } from './../../model/Chapter';
 import { ChapterService } from './../chapter.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MessagingService } from 'src/app/messaging.service';
 
 @Component({
   selector: 'app-chapter-list',
@@ -8,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chapter-list.component.css']
 })
 export class ChapterListComponent implements OnInit {
+  @Output() onChapter = new EventEmitter<number>();
+
   chapters: Chapter[];
-  constructor(private chapterService: ChapterService) { }
+
+  constructor(private chapterService: ChapterService, private messageService: MessagingService) { }
+
+
 
   ngOnInit() {
     this.chapterService.getChapters().subscribe(data => {
@@ -20,6 +26,7 @@ export class ChapterListComponent implements OnInit {
 
   onSelect(chapter) {
     console.log(chapter);
+    this.messageService.postTime(chapter.pos);
   }
 
 }

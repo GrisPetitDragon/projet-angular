@@ -1,3 +1,4 @@
+import { Chapter } from './model/Chapter';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-road66';
+
 }
