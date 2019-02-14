@@ -5,11 +5,6 @@
   </h1>
 </div>
 <app-video></app-video>
-<div style="height: 300px"
-     leaflet
-     [leafletOptions]="options"
+<app-map></app-map>
 
-     [leafletLayers]="myLayers">
-     <!-- <div *ngIf="showLayer" [leafletLayer]="layer"></div> -->
-</div>
 <router-outlet></router-outlet>

@@ -9,12 +9,14 @@ import { ChapterListComponent } from './chapter/chapter-list/chapter-list.compon
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoComponent,
-    ChapterListComponent
+    ChapterListComponent,
+    MapComponent
 
   ],
   imports: [
