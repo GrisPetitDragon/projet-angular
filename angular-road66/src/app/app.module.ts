@@ -8,19 +8,22 @@ import { VideoComponent } from './video/video.component';
 import { ChapterListComponent } from './chapter/chapter-list/chapter-list.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoComponent,
     ChapterListComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]
