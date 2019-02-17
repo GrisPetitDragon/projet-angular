@@ -1,15 +1,27 @@
+import { ChapterListComponent } from './chapter/chapter-list/chapter-list.component';
+import { MapComponent } from './map/map.component';
+import { VideoComponent } from './video/video.component';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MatMenuModule } from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        LeafletModule,
+        MatMenuModule,
+        HttpClientModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        VideoComponent,
+        MapComponent,
+        ChapterListComponent
       ],
     }).compileComponents();
   }));
@@ -32,4 +44,13 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-road66!');
   });
+
+  it('should render a video', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('video')).toBeTruthy();
+  });
+
+
 });

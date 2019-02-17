@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Chapter } from './model/Chapter';
+import { Component, OnInit } from '@angular/core';
+import { tileLayer, latLng, circle, polygon, marker, icon, Layer, Marker } from 'leaflet';
 
 @Component({
   selector: 'app-root',
