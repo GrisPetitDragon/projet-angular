@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MapComponent } from './map.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('MapComponent', () => {
   let component: MapComponent;
@@ -8,9 +9,13 @@ describe('MapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
+      imports: [
+        LeafletModule,
+        HttpClientModule
+      ],
+      declarations: [MapComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +26,10 @@ describe('MapComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render a map', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(document.getElementById('map')).toBeTruthy();
   });
 });
