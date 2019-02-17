@@ -9,7 +9,9 @@ export class MessagingService {
   private timeSource = new BehaviorSubject<string>("0");
   time = this.timeSource.asObservable();
 
-  constructor() { }
+  constructor() {
+
+  }
 
   postTime(time: string) {
     this.timeSource.next(time);

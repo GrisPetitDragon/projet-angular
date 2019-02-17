@@ -27,6 +27,7 @@ export class VideoComponent implements OnInit {
           console.log(time);
         }
       });
+    this.messageService.postTime("0");
   }
 
   public changeChapter(time) {

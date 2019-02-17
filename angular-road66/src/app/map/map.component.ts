@@ -25,7 +25,7 @@ export class MapComponent implements OnInit {
     // Récupération des points clés et abonnement
     this.waypointService.getWaypoints().subscribe(wps => {
       this.waypoints = wps; // on les stocke en local
-
+      this.messagingService.postTime("0");
     });
 
     this.options = {
@@ -36,6 +36,7 @@ export class MapComponent implements OnInit {
 
     // On s'abonne à un chagement de timestamp
     this.messagingService.time.subscribe(time => {
+      console.log(time);
       for (const waypoint of this.waypoints) {
         //On détermine la couleur du point
         const point = this.generateMarker(waypoint, time);
@@ -45,8 +46,8 @@ export class MapComponent implements OnInit {
 
       this.options = {
         layers: this.myLayers,
-        zoom: 7,
-        center: latLng(46.879966, -121.726909)
+        zoom: 5,
+        center: latLng(30, -90)
       };
     });
   }
@@ -58,7 +59,8 @@ export class MapComponent implements OnInit {
    */
   generateMarker(waypoint, time): Marker {
     let point;
-    if (waypoint.timestamp >= time) {
+    if (waypoint.timestamp > time) {
+      // pas passé
       point = marker([waypoint.lat, waypoint.lng], {
         icon: icon({
           iconSize: [25, 41],
