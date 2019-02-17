@@ -8,5 +8,5 @@ import { tileLayer, latLng, circle, polygon, marker, icon, Layer, Marker } from 
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  title = 'angular-road66';
 }
