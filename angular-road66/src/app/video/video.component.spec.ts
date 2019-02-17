@@ -1,4 +1,8 @@
+import { ChapterListComponent } from './../chapter/chapter-list/chapter-list.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MatMenuModule } from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http';
 
 import { VideoComponent } from './video.component';
 
@@ -8,9 +12,13 @@ describe('VideoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideoComponent ]
+      imports:[
+        MatMenuModule,
+        HttpClientModule
+      ],
+      declarations: [VideoComponent, ChapterListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

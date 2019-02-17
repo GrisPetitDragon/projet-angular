@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatMenuModule } from '@angular/material/menu';
 import { ChapterListComponent } from './chapter-list.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ChapterListComponent', () => {
   let component: ChapterListComponent;
@@ -8,9 +10,10 @@ describe('ChapterListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChapterListComponent ]
+      imports: [MatMenuModule, HttpClientModule],
+      declarations: [ChapterListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
